@@ -174,7 +174,7 @@
         window.addEventListener("load",function(){
           engine = Matter.Engine.create();
           world = engine.world;
-          
+
 
           roof = Matter.Bodies.rectangle(0,-200,1400,20,{
             isStatic:true,
@@ -246,6 +246,9 @@
 
 
 
+
+
+
           // create ropes attached to each letter
 
           window.addEventListener("click",function(){
@@ -267,7 +270,7 @@
 
 
 
-          /*
+
           renderer = Matter.Render.create({
           element: document.body,
           engine: engine,
@@ -285,7 +288,7 @@
           renderer.canvas.style.left="0px";
           renderer.canvas.style.top="0px";
           renderer.options.background = 'transparent';
-          */
+
 
 
 
@@ -341,7 +344,7 @@
 
 
           //renderer.run();
-          //Matter.Render.run(renderer);
+          Matter.Render.run(renderer);
           render();
         })
       })()

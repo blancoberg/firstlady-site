@@ -1,9 +1,16 @@
-position all letters acording to the logo
-add constraints
-position animated logo to middle of screen
-add collision boxes for rest of elements ( text below)
+x position all letters acording to the logo
+x add constraints
+x position animated logo to middle of screen
+x add collision boxes for rest of elements ( text below)
+
 add interactivity to the letters and constraints.
   attach when hovering.
-  detach all onClick
+  x detach all onClick
     or after a couple of seconds
   restart animations onClick Again
+
+
+
+add sound effects
+  https://www.soundsnap.com/search/audio/landslide/score?page=2
+  landslide sounds
