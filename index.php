@@ -2,11 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
-    <script src="js/Shaker.js"></script>
-    <script src="js/decomp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="js/Shaker.js"></script>
+    <script src="js/SoundHandler.js"></script>
+    <script src="js/decomp.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.js"></script>
     <script src="js/pathseg.js"></script>
 
@@ -90,7 +93,7 @@
       var chars = ["f","i","r","s","t","l","a","d","y"];
       var constraints = [];
       var shaker;
-
+      var sound;
 
       function rotateVector(vec,angle){
         var x = vec.x * Math.cos(angle) - vec.y * Math.sin(angle);
@@ -158,7 +161,8 @@
               // do something
               letters[i].collidedWith = floor;
               shaker.shake(2 * Math.min(3,letters[i].velocity.y),6,1);
-              console.log("collision!",collision,letters[i].velocity.y)
+              sound.playCollision(Math.abs(letters[i].velocity.y));
+              //console.log("collision!",collision,letters[i].velocity.y)
           }
 
         }
@@ -267,10 +271,10 @@
           window.addEventListener("resize",onResize)
 
           shaker = new Shaker();
+          sound = new SoundHandler();
 
 
-
-
+          /*
           renderer = Matter.Render.create({
           element: document.body,
           engine: engine,
@@ -288,7 +292,7 @@
           renderer.canvas.style.left="0px";
           renderer.canvas.style.top="0px";
           renderer.options.background = 'transparent';
-
+          */
 
 
 
@@ -344,7 +348,7 @@
 
 
           //renderer.run();
-          Matter.Render.run(renderer);
+          //Matter.Render.run(renderer);
           render();
         })
       })()
