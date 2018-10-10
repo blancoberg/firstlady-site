@@ -14,3 +14,7 @@ add interactivity to the letters and constraints.
 add sound effects
   https://www.soundsnap.com/search/audio/landslide/score?page=2
   landslide sounds
+
+add multiple relative elements, that has bodies attached to them, reposition onResize.
+
+clean up all code

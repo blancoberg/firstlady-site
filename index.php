@@ -196,6 +196,8 @@
             //collisionElems = collisionElems.concat(letters);
           }
           //var volumes = [1,0.4]
+
+
           for(var a = 0;a<collisionElems.length;a++){
 
             if(letters[i] != collisionElems[a]){
@@ -256,13 +258,7 @@
           });
           Matter.World.add(world,floor);
 
-          /*
-          mouseBall = Matter.Bodies.circle(0,0,20,{
-            isStatic:true,
-            isSensor:false
-          });
-          Matter.World.add(world,mouseBall);
-          */
+
 
 
 
@@ -278,10 +274,10 @@
 
           // create all letter bodies //
 
-
-
           var bodyPositions = [{x:26,y:51},{x:90,y:65},{x:153,y:38},{x:217,y:68},{x:277,y:30},{x:28,y:179},{x:106,y:170},{x:190,y:196},{x:269,y:163}]
+
           for(var i = 0;i<chars.length;i++){
+
             var dom = document.getElementById(chars[i]).children[0];
 
             var vertices = Matter.Svg.pathToVertices(dom,20);
@@ -290,6 +286,7 @@
               isStatic:false,
               frictionAir : 0.03
             });
+
             letter.label = chars[i];
             Matter.Body.setPosition(letter,bodyPositions[i]);
             letter.data = {
@@ -338,9 +335,9 @@
             for(var i = 0;i<constraints.length;i++){
               Matter.World.remove(world,constraints[i])
             }
-            var bodies = Matter.Composite.allBodies(world);
-            for(i = 3;i<bodies.length;i++){
-              bodies[i].frictionAir = 0;
+            //var bodies = Matter.Composite.allBodies(world);
+            for(i = 0;i<letters.length;i++){
+              letters[i].frictionAir = 0;
             }
 
             //shaker.shake(5,3,0.5);
@@ -422,14 +419,11 @@
 
 
 
-
-
-        onResize();
-
-
-          //renderer.run();
           //Matter.Render.run(renderer);
           render();
+
+          onResize();
+
         })
       })()
     </script>
