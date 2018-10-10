@@ -47,7 +47,7 @@
       font-weight:bold;
       font-family:verdana;
       position:absolute;
-      top:300px;
+      top:350px;
 
 
     }
@@ -128,7 +128,7 @@
       }
 
       function onResize(){
-        console.log("resize")
+        //console.log("resize")
         Matter.Body.setPosition(floor,{x:-100,y:window.innerHeight+10 - 100})
 
         var logo = document.getElementById("logo");
@@ -153,17 +153,26 @@
         // collision //
 
 
-        for(var i = 3;i<letters.length;i++){
+        for(var i = 0;i<letters.length;i++){
 
-          var collision = Matter.SAT.collides(letters[i], floor);
+          var collisionElems = [floor,text]
+          //var volumes = [1,0.4]
+          for(var a = 0;a<collisionElems.length;a++){
 
-          if (collision.collided && letters[i].collidedWith != floor) {
-              // do something
-              letters[i].collidedWith = floor;
-              shaker.shake(2 * Math.min(3,letters[i].velocity.y),6,1);
-              sound.playCollision(Math.abs(letters[i].velocity.y));
-              //console.log("collision!",collision,letters[i].velocity.y)
+
+            var collision = Matter.SAT.collides(letters[i], collisionElems[a]);
+
+            if (collision.collided && letters[i].collidedWith != collisionElems[a]) {
+
+
+                letters[i].collidedWith = collisionElems[a];
+                shaker.shake(2 * Math.min(3,letters[i].velocity.y),6,1);
+                sound.playCollision(a == 0 ? 1 : 0.2);
+
+            }
+
           }
+
 
         }
 
@@ -189,7 +198,8 @@
           Matter.World.add(world,roof);
 
           floor = Matter.Bodies.rectangle(0,400,1400,20,{
-            isStatic:true
+            isStatic:true,
+            isSensor:false
           });
           Matter.World.add(world,floor);
 

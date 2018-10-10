@@ -34,6 +34,8 @@ SoundHandler.prototype.playCollision = function(strength){
   var id = "collision" + this.collisionValues[this.collisionId] ; //"collision" + Math.round(Math.random()*10);
   this.collisionId = this.collisionId == 7 ? 0 : this.collisionId+1;
   //this.sound.stop();
+
+  var s = this.sound.play(id);
+  this.sound.volume(strength, s);
   console.log("play sound",id)
-  this.sound.play(id);
 }
