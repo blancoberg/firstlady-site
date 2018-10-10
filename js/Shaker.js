@@ -18,7 +18,7 @@ Shaker.prototype.update = function(){
     x+= Math.sin(Math.PI*shake.speed * shake.time) * (shake.amplitude)* (1-shake.time);
     y+= Math.sin(1+Math.PI*shake.speed * shake.time) * (shake.amplitude)* (1-shake.time);
   }
-  this.body.style.transform = "translate(" + x+"px,"+ y + "px)";
+    this.body.style.transform = "translate(" + x+"px,"+ y + "px)";
 //  console.log(x,y);
 }
 
