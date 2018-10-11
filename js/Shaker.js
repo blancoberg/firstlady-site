@@ -2,7 +2,7 @@ function Shaker(){
 
   this.shakes = [];
 
-  this.body = document.getElementById("logo");
+  this.body = document.body;
   this.update();
 }
 

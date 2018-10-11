@@ -1,0 +1,107 @@
+@font-face {
+    font-family: Lora-Regular;
+    src: url(/fonts/Lora-Regular.ttf);
+}
+
+a{
+  color:#000000;
+}
+html,body{
+  margin:0;
+  background-color:#fcb2ae;
+  overflow:hidden;
+
+  height: 100%;
+}
+  svg{
+    position:absolute;
+    left:0px;
+    top:0px;
+
+
+  }
+
+#cover{
+
+}
+
+#logo{
+  position:absolute;
+  left:50%;
+  top:0px;
+  width:330px;
+  height:280px;
+
+  transform-origin:0% 0%;
+
+}
+
+#content{
+  font-family:Lora-Regular;
+  top:0px;
+  left:0px;
+  position:relative;
+  width:100%;
+  max-width:500px;
+
+
+  margin: 0 auto;
+  height:100%;
+
+
+}
+
+div::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+
+div::-moz-selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+
+#copy-at,#copy-what,#copy-where{
+  position:absolute;
+  white-space: nowrap;
+  /*background-color:rgba(255,0,0,0.2);*/
+
+}
+
+#copy-where{
+  left:100%;
+  top:330px;
+}
+
+#copy-what{
+
+  position:absolute;
+
+  left:170px;
+  top:440px;
+}
+
+#copy-at{
+  left:-100px;
+
+  bottom:50px;
+
+}
+
+@media only screen and (max-width: 800px) {
+
+  #copy-at{
+    left:20px;
+  }
+
+  #copy-where{
+    width:auto;
+    left:auto;
+    right:20px;
+  }
+
+  #copy-all{
+
+
+  }
+
+
+}
