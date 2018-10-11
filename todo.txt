@@ -18,3 +18,8 @@ add sound effects
 add multiple relative elements, that has bodies attached to them, reposition onResize.
 
 clean up all code
+
+add zoom to logo
+  calculate relative positions for all elements depending on logos scale.
+
+  

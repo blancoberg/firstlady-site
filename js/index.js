@@ -17,7 +17,7 @@ var mouseBall;
 var ropes;
 var ropesCut = false;
 var texts = [];
-
+var bodyPositions = [{x:26,y:51},{x:90,y:65},{x:153,y:38},{x:217,y:68},{x:277,y:30},{x:28,y:179},{x:106,y:170},{x:190,y:196},{x:269,y:163}]
 
 function offset(el) {
   var rect = el.getBoundingClientRect(),
@@ -220,7 +220,7 @@ function render(){
 */
     // create all letter bodies //
 
-    var bodyPositions = [{x:26,y:51},{x:90,y:65},{x:153,y:38},{x:217,y:68},{x:277,y:30},{x:28,y:179},{x:106,y:170},{x:190,y:196},{x:269,y:163}]
+
 
     for(var i = 0;i<chars.length;i++){
 
@@ -278,14 +278,60 @@ function render(){
 
     window.addEventListener("click",function(){
 
-      ropesCut = true;
-      for(var i = 0;i<constraints.length;i++){
-        Matter.World.remove(world,constraints[i])
+      if(!ropesCut){
+        for(var i = 0;i<constraints.length;i++){
+          Matter.World.remove(world,constraints[i])
+        }
+        //var bodies = Matter.Composite.allBodies(world);
+        for(i = 0;i<letters.length;i++){
+          letters[i].frictionAir = 0;
+        }
+        ropesCut = true;
+      }else{
+
+        for(var i = 0;i<texts.length;i++){
+          texts[i].isSensor=false;
+        }
+
+        for(var i = 0;i<constraints.length;i++){
+          Matter.World.add(world,constraints[i])
+        }
+        for(var i = 0;i<letters.length;i++){
+          //letters[i].isStatic=false;
+          letters[i].frictionAir = 0.03;
+          Matter.Body.setAngle(letters[i],0);
+          Matter.Body.setAngularVelocity(letters[i],0);
+
+          Matter.Body.setPosition(letters[i],{x:bodyPositions[i].x+20,y:bodyPositions[i].y-150});
+
+          /*
+          var complete = i != letters.length -1 ? null : function(){
+
+            for(var i = 0;i<constraints.length;i++){
+              Matter.World.add(world,constraints[i])
+            }
+
+            for(var i = 0;i<texts.length;i++){
+              texts[i].isSensor=false;
+            }
+
+            for(i = 0;i<letters.length;i++){
+              letters[i].frictionAir = 0.02;
+              letters[i].isStatic=false;
+              Matter.Body.setVelocity(letters[i],{x:0,y:0})
+              Matter.Body.setAngularVelocity(letters[i],0)
+
+            }
+
+          }*/
+
+          //TweenLite.to(letters[i].position,1,{x:bodyPositions[i].x,y:bodyPositions[i].y});
+          //TweenLite.to(letters[i],1,{angle:0,onComplete:complete})
+        }
+
+        ropesCut = false;
       }
-      //var bodies = Matter.Composite.allBodies(world);
-      for(i = 0;i<letters.length;i++){
-        letters[i].frictionAir = 0;
-      }
+
 
       //shaker.shake(5,3,0.5);
     })
