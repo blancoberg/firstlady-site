@@ -22,10 +22,29 @@
     <script src="js/pathseg.js"></script>
 
     <meta charset="utf-8">
-    <title></title>
+
+    <!-- FAVICONS -->
+    <link rel="icon" type="image/png" href="/images/favicon32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon64.png" sizes="64x64">
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+    <!-- Place this data between the <head> tags of your website -->
+    <title>First Lady Agency</title>
+    <meta name="description" content="First lady is a Creative & Innovation Agency based in Stockholm" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="First lady is a Creative & Innovation Agency based in Stockholm">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="First Lady Agency" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.first-lady.se/" />
+    <meta property="og:image" content="http://www.first-lady.se/images/facebook.png" /> <!-- 1200 x 630  -->
+    <meta property="og:description" content="First lady is a Creative & Innovation Agency based in Stockholm" />
+
 
   </head>
   <body>
