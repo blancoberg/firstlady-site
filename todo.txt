@@ -22,4 +22,5 @@ clean up all code
 add zoom to logo
   calculate relative positions for all elements depending on logos scale.
 
-  
+instead of repositioning the texts,
+  destroy and recreate on resize on scale change

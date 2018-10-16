@@ -16,6 +16,7 @@ var mouse;
 var mouseBall;
 var ropes;
 var ropesCut = false;
+var lastScale = 1;
 var texts = [];
 var bodyPositions = [{x:26,y:51},{x:90,y:65},{x:153,y:38},{x:217,y:68},{x:277,y:30},{x:28,y:179},{x:106,y:170},{x:190,y:196},{x:269,y:163}]
 
@@ -83,14 +84,17 @@ function onMouseOver(e){
 
 function onResize(){
   //console.log("resize")
+
+  var scale = window.innerWidth > 800 ? 1 : 0.8;
+
   var textContent = document.getElementById("content");
-  Matter.Body.setPosition(floor,{x:-100,y:window.innerHeight+10})
+  Matter.Body.setPosition(floor,{x:-100/scale,y:(window.innerHeight/scale+10)})
 
   var logo = document.getElementById("logo");
-  logo.style.left = window.innerWidth*0.5 - logo.offsetWidth*0.5 + "px"
+  logo.style.left = window.innerWidth*0.5 - logo.offsetWidth*1*scale*0.5 + "px"
 
 
-
+  logo.style.transform = "scale(" +scale+","+scale+")";
 
   //Matter.body.setPosition(text,{x:logo.offsetWidth*0.5 - t.offsetWidth*0.5,y:t.offsetTop})
   if(renderer){
@@ -102,7 +106,20 @@ function onResize(){
     var textData = texts[i].data;
     var textElem = textData.dom;
     var bb = offset(textElem);
-    Matter.Body.setPosition(textData.body,{x:bb.left - logo.offsetLeft + textElem.offsetWidth*0.5,y:bb.top + textElem.offsetHeight*0.5})
+    console.log(textData.body)
+
+    var bodyWidth = textData.body.bounds.max.x - textData.body.bounds.min.x;
+    var bodyHeight = textData.body.bounds.max.y - textData.body.bounds.min.y;
+
+
+      var newWidth = textElem.offsetWidth/scale;
+      var newHeight = textElem.offsetHeight/scale;
+      Matter.Body.scale(textData.body,newWidth/bodyWidth,newHeight/bodyHeight);
+      lastScale = scale;
+
+
+
+    Matter.Body.setPosition(textData.body,{x:(bb.left - logo.offsetLeft + textElem.offsetWidth*0.5)/scale,y:(bb.top + textElem.offsetHeight*0.5)/scale})
   }
 
   if(ropes)
@@ -121,7 +138,7 @@ function render(){
 
   for(var i = 0;i<letters.length;i++){
 
-    var collisionElems = [floor].concat(texts);
+    var collisionElems = [floor];
     if(ropesCut==false)
     {
       //collisionElems = collisionElems.concat(texts);
@@ -139,7 +156,7 @@ function render(){
 
 
             letters[i].data.collidedWith = collisionElems[a];//.push(collisionElems[a]);
-            //shaker.shake(1 * Math.min(1,letters[i].velocity.y),6,1);
+            shaker.shake(1 * Math.min(2,letters[i].velocity.y),6,1);
             //sound.playCollision(a == 0 ? 1 : 0.2);
 
         }
@@ -261,7 +278,7 @@ function render(){
       });
       constraints.push(constraint);
 
-      Matter.Body.setPosition(letter,{x:letter.position.x+20,y:letter.position.y-150})
+      Matter.Body.setPosition(letter,{x:letter.position.x+20,y:letter.position.y-80})
       Matter.Body.setVelocity(letter,{x:0,y:0})
       Matter.World.add(world,constraint);
 
@@ -302,7 +319,7 @@ function render(){
           Matter.Body.setAngle(letters[i],0);
           Matter.Body.setAngularVelocity(letters[i],0);
 
-          Matter.Body.setPosition(letters[i],{x:bodyPositions[i].x+20,y:bodyPositions[i].y-150});
+          Matter.Body.setPosition(letters[i],{x:bodyPositions[i].x+20,y:bodyPositions[i].y-80});
 
           /*
           var complete = i != letters.length -1 ? null : function(){
@@ -344,6 +361,7 @@ function render(){
     mouse = new Mouse();
     //ropes = new Ropes();
     //console.log("after mouse",Mouse)
+
     /*
     renderer = Matter.Render.create({
     element: document.body,
@@ -418,7 +436,8 @@ window.addEventListener("mouseup",function(e){
     TweenLite.to(document.getElementById("cover"),0.3,{opacity:0,onComplete:function(){
       document.getElementById("cover").style.display="none";
       render();
-      document.getElementById("logo").style.opacity=1;
+      //document.getElementById("logo").style.opacity=1;
+      TweenLite.to(document.getElementById("logo"),0.3,{opacity:1})
     }})
     onResize();
 
