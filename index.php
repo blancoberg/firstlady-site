@@ -24,9 +24,11 @@
     <meta charset="utf-8">
 
     <!-- FAVICONS -->
+    <link href="/images/favicon.ico" rel="shortcut icon">
+    <!--
     <link rel="icon" type="image/png" href="/images/favicon32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon64.png" sizes="64x64">
-
+  -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
