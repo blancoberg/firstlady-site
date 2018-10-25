@@ -35,7 +35,11 @@ html,body{
   height:280px;
   opacity:0;
   transform-origin:0% 0%;
+  z-index:50;
+}
 
+.h1{
+  display:none;
 }
 
 #content{

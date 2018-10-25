@@ -51,54 +51,61 @@
   </head>
   <body>
 
-
+    
     <!--<img style="position:absolute;left:0px;top:0px;opacity:1" src="images/screen.png">-->
-    <div id="content">
+    <header>
+      <h1 class="h1">First Lady</h1>
 
-      <div id="copy-all">
+      <div id="logo" style="opacity:0">
+      <?php
 
-        <div id="copy-at">
-          <a href="mailto:hej@first-lady.se">Get in touch</a>
-        </div>
+        $letters = array("f","i","r","s","t","l","a","d","y");
+        for($i = 0;$i<count($letters);$i++){
+          $letter = $letters[$i];
+          $svg = file_get_contents("svgs/".$letter.".svg");
+          #mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
+          $svg = str_replace("Layer_1",$letter,$svg);
+      ?>
 
-        <div id="copy-where">
-          First Lady Agency<br/>
-          Telegrafgränd 1B<br/>
-          111 30 Stockholm<br/>
-          Sweden
-        </div>
 
-        <div id="copy-what">
-          First lady is a Creative<br/>
-          & Innovation Agency<br/>
-          Based in Stockholm
-        </div>
+        <?=$svg?>
+
+
+      <?php
+        }
+      ?>
+
 
       </div>
-
-    </div>
-
-    <div id="logo" style="opacity:0">
-    <?php
-
-      $letters = array("f","i","r","s","t","l","a","d","y");
-      for($i = 0;$i<count($letters);$i++){
-        $letter = $letters[$i];
-        $svg = file_get_contents("svgs/".$letter.".svg");
-        #mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
-        $svg = str_replace("Layer_1",$letter,$svg);
-    ?>
+    </header>
 
 
-      <?=$svg?>
+      <section id="content">
+
+        <div id="copy-all">
+
+          <p id="copy-at">
+            <a href="mailto:hej@first-lady.se">Get in touch</a>
+          </p>
+
+          <p id="copy-where">
+            First Lady Agency<br/>
+            Telegrafgränd 1B<br/>
+            111 30 Stockholm<br/>
+            Sweden
+          </p>
+
+          <p id="copy-what">
+            First lady is a Creative<br/>
+            & Innovation Agency<br/>
+            Based in Stockholm
+          </p>
+
+        </div>
+
+      </section>
 
 
-    <?php
-      }
-    ?>
-
-
-    </div>
 
     <div id="cover" style="position:absolute;left:0px;top:0px;width:100%;height:100%;background-color:white"></div>
 
