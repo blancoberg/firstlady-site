@@ -6,6 +6,8 @@
 a{
   color:#000000;
 }
+
+
 html,body{
   margin:0;
   background-color:#fcb2ae;
@@ -31,9 +33,13 @@ html,body{
   top:0px;
   width:330px;
   height:280px;
-
+  opacity:0;
   transform-origin:0% 0%;
+  z-index:50;
+}
 
+.h1{
+  display:none;
 }
 
 #content{
