@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
@@ -10,22 +12,24 @@
 
 
 
-    <script src="js/Ropes.js"></script>
+    <script src="js/Snow.js"></script>
     <script src="js/Mouse.js"></script>
     <script src="js/Shaker.js"></script>
     <script src="js/SoundHandler.js"></script>
     <script src="js/decomp.min.js"></script>
     <script src="js/index.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.js"></script>
+
     <script src="js/pathseg.js"></script>
 
     <meta charset="utf-8">
 
     <!-- FAVICONS -->
+    <link href="/images/favicon.ico" rel="shortcut icon">
+    <!--
     <link rel="icon" type="image/png" href="/images/favicon32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon64.png" sizes="64x64">
+    -->
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -69,7 +73,7 @@
         <div id="copy-what">
           First lady is a Creative<br/>
           & Innovation Agency<br/>
-          Based in Stockholm
+          based in Stockholm
         </div>
 
       </div>
@@ -97,8 +101,9 @@
 
 
     </div>
-
+    <!--<div id="snow"></div>-->
     <div id="cover" style="position:absolute;left:0px;top:0px;width:100%;height:100%;background-color:white"></div>
+
 
 
 

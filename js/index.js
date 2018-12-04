@@ -342,6 +342,7 @@ function render(){
     shaker = new Shaker();
     sound = new SoundHandler();
     mouse = new Mouse();
+    //new Snow("snow")
     //ropes = new Ropes();
     //console.log("after mouse",Mouse)
     /*
