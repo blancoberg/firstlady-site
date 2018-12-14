@@ -29,7 +29,10 @@
     <!--
     <link rel="icon" type="image/png" href="/images/favicon32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon64.png" sizes="64x64">
-  -->
+
+    -->
+
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
@@ -69,11 +72,16 @@
       ?>
 
 
-        <div id="copy-what">
-          First lady is a Creative<br/>
-          & Innovation Agency<br/>
-          based in Stockholm
-        </div>
+
+
+        <?=$svg?>
+
+
+      <?php
+        }
+      ?>
+
+
 
       </div>
     </header>
@@ -97,7 +105,7 @@
           <p id="copy-what">
             First lady is a Creative<br/>
             & Innovation Agency<br/>
-            Based in Stockholm
+            based in Stockholm
           </p>
 
         </div>
@@ -107,6 +115,7 @@
 
     </div>
     <!--<div id="snow"></div>-->
+    <div id="snow"></div>
     <div id="cover" style="position:absolute;left:0px;top:0px;width:100%;height:100%;background-color:white"></div>
 
 
